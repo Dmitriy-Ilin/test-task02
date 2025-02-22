@@ -22,7 +22,7 @@ const Header = () => {
             </Text>
           </Link>
           <Link
-            to='/'
+            to=''
             className={
               location.pathname === '/create' || location.pathname === '/'
                 ? 'link active-link'
