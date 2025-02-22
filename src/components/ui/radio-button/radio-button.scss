@@ -16,6 +16,12 @@ $radio-label-font-large: 16px;
   user-select: none;
   gap: 8px;
 
+  &:not(.radio--disabled):hover {
+    .radio__checkmark {
+      box-shadow: 0px 0px 3px 1px #35a50080;
+    }
+  }
+
   &__input {
     position: absolute;
     opacity: 0;
@@ -33,7 +39,7 @@ $radio-label-font-large: 16px;
         background-position: center;
         background-size: contain;
         display: block;
-        transform: translate(25%, 25%);
+        transform: translate(30%, 30%);
         width: 10px;
         height: 10.5px;
       }

@@ -1,4 +1,5 @@
 export interface Vacancy {
+  id?: string;
   position: string;
   vacancyTitle: string;
   department: string;

@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/date-fns": "^2.5.3",
     "@types/react-datepicker": "^6.2.0",
     "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
     "formik": "^2.4.6",
     "react": "^19.0.0",
     "react-datepicker": "^8.1.0",

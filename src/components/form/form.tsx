@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Text from '../ui/text/Text';
 import './form.scss';
 import { Formik } from 'formik';
@@ -19,15 +19,17 @@ import Area from '../ui/input-area/input-area';
 import Button from '../ui/button/button';
 import { useVacancies } from '../../context/vacancy-context';
 import { Vacancy } from '../../types/types';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Form = () => {
-  const { addVacancy, vacancies } = useVacancies();
+  const { addVacancy, updateVacancy, getVacancyById } = useVacancies();
   const navigate = useNavigate();
+  const { id } = useParams();
+  const vacancyToEdit = id ? getVacancyById(id) : null;
 
   useEffect(() => {
-    console.log(vacancies);
-  }, [vacancies]);
+    if (id && !vacancyToEdit) navigate('/');
+  }, [id, vacancyToEdit, navigate]);
 
   return (
     <div className='form-container'>
@@ -35,13 +37,18 @@ const Form = () => {
         Форма размещения заявки
       </Text>
       <Formik
-        initialValues={initialValues}
         validationSchema={validationSchema}
+        enableReinitialize={true}
+        initialValues={vacancyToEdit || initialValues}
         // onSubmit={(values) => console.log(values)}
         onSubmit={(values: Vacancy, { resetForm }) => {
-          addVacancy(values);
+          if (id) {
+            updateVacancy(values);
+          } else {
+            addVacancy(values);
+          }
           navigate('/vacancies');
-          // resetForm();
+          resetForm();
         }}
       >
         {({
@@ -267,6 +274,7 @@ const Form = () => {
                   Функциональные обязанности
                 </Text>
                 <Area
+                  placeholder='Какую работу будет выполнять сотрудник'
                   name='responsibilities'
                   value={values.responsibilities}
                   onChange={handleChange}
@@ -277,6 +285,7 @@ const Form = () => {
                   Пожелания к кандидату
                 </Text>
                 <Area
+                  placeholder='Ключевые навыки, достижения'
                   name='wishes'
                   value={values.wishes}
                   onChange={handleChange}
@@ -287,6 +296,7 @@ const Form = () => {
                   Преимуществом будет
                 </Text>
                 <Area
+                  placeholder='Дополнительные специальные навыки'
                   name='advantages'
                   value={values.advantages}
                   onChange={handleChange}

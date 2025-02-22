@@ -1,9 +1,38 @@
 import './date-picker.scss';
-import React from 'react';
-import DatePicker from 'react-datepicker';
+import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
+import { ru } from 'date-fns/locale/ru';
 import clsx from 'clsx';
+import CustomInput from './cutom-input';
+
+const ruLocale = {
+  ...ru,
+  options: {
+    ...ru.options,
+
+    weekStartsOn: 1,
+  },
+  localize: {
+    ...ru.localize,
+    month: (index: number) =>
+      [
+        'Январь',
+        'Февраль',
+        'Март',
+        'Апрель',
+        'Май',
+        'Июнь',
+        'Июль',
+        'Август',
+        'Сентябрь',
+        'Октябрь',
+        'Ноябрь',
+        'Декабрь',
+      ][index],
+    day: (index: number) => ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'][index],
+  },
+};
+registerLocale('ru-custom', ruLocale);
 
 const DatePickerField = ({
   name,
@@ -31,11 +60,12 @@ const DatePickerField = ({
         </label>
       )}
       <DatePicker
+        locale='ru-custom'
         selected={value}
         onChange={(date) => onChange(name, date)}
         dateFormat='dd.MM.yyyy'
-        isClearable
-        placeholderText='Выберите дату'
+        customInput={<CustomInput />}
+        placeholderText='дд.мм.гггг'
         className={clsx('input', {
           'area--error': error,
         })}

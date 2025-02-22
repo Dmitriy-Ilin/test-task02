@@ -1,6 +1,5 @@
 @use '../../../scss/main' as *;
 
-// Variables
 $select-border-color: $border-default;
 $select-border-radius: 16px;
 $select-padding: 12px 20px;
@@ -59,23 +58,23 @@ $select-transition: all 0.3s ease;
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #333333;
+
+  &--placeholder {
+    color: $placeholder;
+  }
 }
 
 .select__arrow {
   position: absolute;
   top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #666666;
+  right: 20px;
+  transform: translateY(-50%) rotate(180deg);
+
   transition: $select-transition;
 }
 
 .select--open .select__arrow {
-  transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%) rotate(0);
 }
 
 .select-dropdown {

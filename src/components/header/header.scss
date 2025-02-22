@@ -1,17 +1,27 @@
 @use '../../../src/scss/main' as *;
 
-.header {
+.header-wrapper {
   position: sticky;
   top: 0;
-  padding: 20px 150px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  left: 0;
+  right: 0;
+  width: 100%;
   background-color: $active;
   z-index: 10000;
 }
 
+.header {
+  max-width: 1300px;
+  height: 71px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .header-left {
+  margin: 20px 0;
   background-color: $white;
   width: 31px;
   height: 31px;
@@ -20,9 +30,41 @@
 
 .header-right {
   display: flex;
+  height: 100%;
+  align-items: stretch;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 18px;
+    left: 20px;
+    right: 100%;
+    height: 6px;
+    background-color: $yellow;
+    transition: right 0.3s ease;
+  }
+
+  &:hover::after {
+    right: 20px;
+  }
+}
+
+.active-link {
+  background-color: $hover;
 }
 
 .header-text {
-  padding: 0 20px;
   color: $white;
 }

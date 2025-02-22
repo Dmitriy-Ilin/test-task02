@@ -25,6 +25,10 @@
   resize: vertical;
   color: $main;
 
+  &::placeholder {
+    color: $placeholder;
+  }
+
   &:hover:not(:disabled) {
     border-color: $border-hover;
   }

@@ -1,4 +1,5 @@
 import './select.scss';
+import arrow from '../../../assets/arrow.svg';
 
 import { FC, useState, useRef, useEffect } from 'react';
 import clsx from 'clsx';
@@ -30,7 +31,7 @@ const Select: FC<SelectProps> = ({
   name,
   required,
   onChange,
-  placeholder = 'Select...',
+  placeholder,
   disabled = false,
   error = false,
   errorMessage,
@@ -79,11 +80,15 @@ const Select: FC<SelectProps> = ({
         role='button'
         tabIndex={0}
       >
-        <div className='select__selected'>
+        <div
+          className={clsx('select__selected', {
+            'select__selected--placeholder': !selectedOption,
+          })}
+        >
           {selectedOption?.label || placeholder}
         </div>
 
-        <div className='select__arrow' />
+        <img className='select__arrow' src={arrow} />
 
         {isOpen && (
           <div className='select-dropdown'>

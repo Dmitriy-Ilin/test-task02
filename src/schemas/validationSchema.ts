@@ -1,6 +1,7 @@
-import { boolean, date, number, object, string } from 'yup';
+import { date, object, string } from 'yup';
 
 export const validationSchema = object({
+  id: string(),
   position: string(),
   vacancyTitle: string().required('Укажите наименование'),
   department: string().required('Укажите наименование'),

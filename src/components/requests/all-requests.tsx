@@ -4,9 +4,11 @@ import edit from '../../assets/Edit.svg';
 import mark from '../../assets/Map_Pin.svg';
 import metro from '../../assets/Metro.svg';
 import { useVacancies } from '../../context/vacancy-context';
+import { useNavigate } from 'react-router-dom';
 
 const AllRequests = () => {
   const { vacancies } = useVacancies();
+  const navigate = useNavigate();
 
   return (
     <div className='form-container'>
@@ -15,13 +17,13 @@ const AllRequests = () => {
       </Text>
       {vacancies.map((vacancy) => {
         return (
-          <div className='form-main all-requests'>
+          <div className='form-main all-requests' key={vacancy.id}>
             <div className='requests-edit'>
               <Text size='sm' weight='regular' lineHeight='sm'>
                 {/* Дата публикации: 23.01.2023 */}
                 {vacancy.openingDate?.toString()}
               </Text>
-              <button>
+              <button onClick={() => navigate(`/edit/${vacancy.id}`)}>
                 <img src={edit} alt='edit' />
               </button>
             </div>
@@ -41,20 +43,22 @@ const AllRequests = () => {
                 <Text className='requests-salary__text'>
                   {/* от 70 000<span>на руки</span> */}
                   {vacancy.from}
-                  <span>{vacancy.salary}</span>
+                  <span>{vacancy.salary.toLocaleLowerCase()}</span>
                 </Text>
                 <Text className='requests-salary__text'>
                   {/* <span>Требуемый опыт:</span>от 1 до 3 лет */}
                   <span>Требуемый опыт:</span>
                   {vacancy.expirience}
                 </Text>
-                <div>
-                  <img src={metro} alt='metro' />
-                  <Text className='requests-salary__text'>
-                    {/* Сходненская, Трикотажная и Волоколамская */}
-                    {vacancy.metroStation}
-                  </Text>
-                </div>
+                {vacancy.metroStation && (
+                  <div>
+                    <img src={metro} alt='metro' />
+                    <Text className='requests-salary__text'>
+                      {/* Сходненская, Трикотажная и Волоколамская */}
+                      {vacancy.metroStation}
+                    </Text>
+                  </div>
+                )}
               </div>
             </div>
           </div>

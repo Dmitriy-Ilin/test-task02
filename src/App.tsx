@@ -12,6 +12,7 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path='/' element={<Form />} />
+          <Route path='/edit/:id' element={<Form />} />
           <Route path='/vacancies' element={<AllRequests />} />
         </Routes>
       </div>

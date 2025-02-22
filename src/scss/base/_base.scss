@@ -13,6 +13,8 @@ $font-accent: 'Hebrew', sans-serif;
 
 body {
   background-color: $background;
+  font-family: $font-main;
+  font-size: $font-size-md;
   color: $main;
 }
 
