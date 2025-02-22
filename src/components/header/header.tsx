@@ -17,12 +17,7 @@ const Header = () => {
               location.pathname === '/vacancies' ? 'link active-link' : 'link'
             }
           >
-            <Text
-              className='header-text'
-              size='lg'
-              weight={location.pathname === '/' ? 'black' : 'regular'}
-              lineHeight='xl'
-            >
+            <Text className='header-text' size='lg' lineHeight='xl'>
               Все заявки
             </Text>
           </Link>
@@ -34,12 +29,7 @@ const Header = () => {
                 : 'link'
             }
           >
-            <Text
-              className='header-text'
-              size='lg'
-              weight={location.pathname === '/create' ? 'black' : 'regular'}
-              lineHeight='xl'
-            >
+            <Text className='header-text' size='lg' lineHeight='xl'>
               Создание заявки
             </Text>
           </Link>

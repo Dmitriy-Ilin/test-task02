@@ -67,7 +67,7 @@ $radio-label-font-large: 16px;
     margin-left: 8px;
     color: var(--color-text);
     font-size: $font-size-md;
-    font-weight: $font-weight-light;
+    font-weight: $font-weight-bold;
     line-height: $line-height-md;
   }
 
@@ -85,7 +85,7 @@ $radio-label-font-large: 16px;
 
       .radio__label {
         font-size: $font-size-md;
-        font-weight: $font-weight-light;
+        font-weight: $font-weight-bold;
         line-height: $line-height-md;
       }
     }

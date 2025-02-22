@@ -16,6 +16,10 @@
   gap: 32px;
 }
 
+.radio-label {
+  font-weight: $font-weight-bold !important;
+}
+
 .form-main {
   background-color: $white;
   padding: 60px 60px;
@@ -98,7 +102,9 @@
 }
 
 .form-list {
-  padding: 0 47px;
+  padding: 12px 20px 12px 47px;
+  border: 1px solid $border-default;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -108,4 +114,8 @@
 .form-btns {
   display: flex;
   gap: 20px;
+}
+
+.input-address {
+  width: 420px !important;
 }

@@ -1,8 +1,14 @@
 @use '../../../src/scss/main' as *;
 
 .all-requests {
-  padding: 16px 28px;
   margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  & .form-main {
+    padding: 16px 28px;
+  }
 }
 
 .requests-edit {
@@ -16,6 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: $font-condensed;
 }
 
 .requests-address {

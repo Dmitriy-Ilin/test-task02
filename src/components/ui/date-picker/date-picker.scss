@@ -88,3 +88,8 @@
 .react-datepicker__close-icon {
   right: 30px;
 }
+
+.react-datepicker__day--in-range {
+  background-color: #e0f0ff;
+  color: $active;
+}

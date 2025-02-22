@@ -42,14 +42,25 @@ const DatePickerField = ({
   onChange,
   error,
   errorMessage,
+  selectsStart,
+  selectsEnd,
+  startDate,
+  endDate,
+  minDate,
 }: {
   name: string;
   label: string;
-  value: Date | null;
+  value: Date | undefined;
   required?: boolean;
   onChange: (name: string, date: Date | null) => void;
   error: boolean;
   errorMessage?: string;
+
+  selectsStart?: boolean;
+  selectsEnd?: boolean;
+  startDate?: Date | null;
+  endDate?: Date;
+  minDate?: Date;
 }) => {
   return (
     <div className={clsx('date-picker')}>
@@ -64,8 +75,13 @@ const DatePickerField = ({
         selected={value}
         onChange={(date) => onChange(name, date)}
         dateFormat='dd.MM.yyyy'
-        customInput={<CustomInput />}
+        customInput={<CustomInput placeholderText='дд.мм.гггг' />}
         placeholderText='дд.мм.гггг'
+        selectsStart={selectsStart}
+        selectsEnd={selectsEnd}
+        startDate={startDate}
+        endDate={endDate}
+        minDate={minDate}
         className={clsx('input', {
           'area--error': error,
         })}

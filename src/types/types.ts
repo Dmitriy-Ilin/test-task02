@@ -3,8 +3,8 @@ export interface Vacancy {
   position: string;
   vacancyTitle: string;
   department: string;
-  openingDate: Date | null;
-  closingDate: Date | null;
+  openingDate: Date | undefined;
+  closingDate: Date | undefined;
   gender: string;
   education: string;
   salary: string;

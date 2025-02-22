@@ -97,16 +97,22 @@ const Form = () => {
                   required
                   value={values.openingDate}
                   onChange={setFieldValue}
+                  selectsStart
+                  startDate={values.openingDate}
+                  endDate={values.closingDate}
                   error={!!(touched.openingDate && errors.openingDate)}
                   errorMessage={errors.openingDate}
                 />
-
                 <DatePickerField
                   name='closingDate'
                   label='Плановая дата закрытия'
                   required
-                  value={values.closingDate}
+                  value={values.closingDate || undefined}
                   onChange={setFieldValue}
+                  selectsEnd
+                  startDate={values.openingDate}
+                  endDate={values.closingDate}
+                  minDate={values.openingDate}
                   error={!!(touched.closingDate && errors.closingDate)}
                   errorMessage={errors.closingDate}
                 />
@@ -204,6 +210,7 @@ const Form = () => {
                   errorMessage={errors.region}
                 />
                 <Input
+                  className='input-address'
                   name='address'
                   label='Адрес'
                   required
@@ -309,24 +316,24 @@ const Form = () => {
                 </Text>
                 <ul className='form-list'>
                   <li>
-                    <Text size='sm' weight='bold' lineHeight='sm'>
+                    <Text size='md' weight='light' lineHeight='sm'>
                       Дружный коллектив, интересные задачи и возможность быть
                       услышанным;
                     </Text>
                   </li>
                   <li>
-                    <Text size='sm' weight='bold' lineHeight='sm'>
+                    <Text size='md' weight='light' lineHeight='sm'>
                       Приобретение навыков работы в большой, разветвлённой и
                       сложноподчинённой структуре, задействованной в сфере ИТ;
                     </Text>
                   </li>
                   <li>
-                    <Text size='sm' weight='bold' lineHeight='sm'>
+                    <Text size='md' weight='light' lineHeight='sm'>
                       Оформление в соответствии с ТК РФ;
                     </Text>
                   </li>
                   <li>
-                    <Text size='sm' weight='bold' lineHeight='sm'>
+                    <Text size='md' weight='light' lineHeight='sm'>
                       Полностью официальная заработная плата
                     </Text>
                   </li>
