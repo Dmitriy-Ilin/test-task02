@@ -1,0 +1,111 @@
+@use '../../../src/scss/main' as *;
+
+.form-container {
+  margin-top: 48px;
+}
+
+.form-text {
+  color: $active;
+}
+
+.form {
+  margin-top: 56px;
+  padding-bottom: 106px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form-main {
+  background-color: $white;
+  padding: 60px 60px;
+  border-radius: 16px;
+
+  & > .radio-label {
+    margin-bottom: 8px;
+  }
+
+  & > .radio-group {
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+
+.form-first {
+  display: flex;
+  gap: 40px;
+
+  & input {
+    max-width: 275px;
+  }
+}
+
+.form-second {
+  margin-top: 40px;
+  display: flex;
+  gap: 40px;
+
+  & input {
+    max-width: 275px;
+  }
+}
+
+.form-third {
+  margin-top: 40px;
+  display: flex;
+  gap: 40px;
+}
+
+.form-salary {
+  display: flex;
+  gap: 16px;
+
+  & > .input-container {
+    width: 175px;
+  }
+}
+
+.form-salary {
+  margin-top: 16px;
+
+  & .input-container {
+    width: 125px;
+  }
+}
+
+.form-region {
+  margin-top: 40px;
+  display: flex;
+  gap: 40px;
+}
+
+.form-expirience {
+  margin-top: 40px;
+  display: flex;
+  gap: 40px;
+}
+
+.form-areas {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.form-list {
+  padding: 0 47px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: $main;
+}
+
+.form-btns {
+  display: flex;
+  gap: 20px;
+}

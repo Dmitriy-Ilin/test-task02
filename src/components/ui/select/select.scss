@@ -1,0 +1,119 @@
+@use '../../../scss/main' as *;
+
+// Variables
+$select-border-color: $border-default;
+$select-border-radius: 16px;
+$select-padding: 12px 20px;
+$select-hover: $border-hover;
+$select-focus-color: $active;
+$select-error-color: $border-error;
+$select-transition: all 0.3s ease;
+
+.select-container {
+  position: relative;
+  width: 100%;
+  max-width: 275px;
+}
+
+.select-label {
+  display: block;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-sm;
+  font-size: $font-size-sm;
+  margin-bottom: 8px;
+  color: $main;
+}
+
+.select {
+  position: relative;
+  border: 1px solid $select-border-color;
+  border-radius: $select-border-radius;
+  padding: $select-padding;
+  cursor: pointer;
+  background-color: white;
+  transition: $select-transition;
+
+  &:hover {
+    border-color: $select-hover;
+  }
+
+  &--open {
+    border: 2px;
+    border-color: $select-focus-color;
+    box-shadow: 0 0 0 1px $select-focus-color;
+  }
+
+  &--disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  &--error {
+    border-color: $select-error-color;
+  }
+}
+
+.select__selected {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333333;
+}
+
+.select__arrow {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #666666;
+  transition: $select-transition;
+}
+
+.select--open .select__arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.select-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid $select-border-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.select-option {
+  padding: 8px 12px;
+  color: #333333;
+  transition: $select-transition;
+
+  &:hover {
+    background-color: $action-hover;
+  }
+
+  &--selected {
+    background-color: #e9ecef;
+  }
+
+  &--disabled {
+    color: #999999;
+    cursor: not-allowed;
+    background-color: transparent;
+  }
+}
+
+.select-error {
+  margin-top: 4px;
+  color: $select-error-color;
+  font-size: $font-size-xs;
+  line-height: $line-height-xs;
+}

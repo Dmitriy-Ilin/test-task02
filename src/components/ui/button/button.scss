@@ -1,0 +1,54 @@
+@use '../../../scss/main' as *;
+
+$button-color-active: $active;
+$button-color-hover: $hover;
+$button-color-normal: 16px 32px;
+
+$button-font-bolder: 800;
+$button-font-bold: 600;
+
+.button {
+  display: inline-flex;
+  padding: 16px 0;
+  width: 250px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $active;
+  border-radius: 26px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-lg;
+  color: $white;
+
+  &--variant-primary {
+    background-color: $button-color-active;
+    font-weight: $font-weight-black;
+
+    &:hover {
+      background-color: $button-color-hover;
+    }
+  }
+
+  /* &--variant-secondary {
+    background-color: $button-color-hover;
+  } */
+
+  &--variant-default {
+    color: $button-color-active;
+    background-color: transparent;
+    font-weight: $font-weight-bold;
+
+    &:hover {
+      color: $button-color-hover;
+      border-color: $button-color-hover;
+    }
+  }
+
+  /* &--variant-hover {
+    background-color: transparent;
+    font-weight: $font-weight-bold;
+  } */
+}

@@ -1,0 +1,66 @@
+@use '../../../src/scss/main' as *;
+
+.all-requests {
+  padding: 16px 28px;
+  margin-top: 56px;
+}
+
+.requests-edit {
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.requests-data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.requests-address {
+  margin-top: 12.5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.requests-salary {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  & div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+.requests-salary__text {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: $active;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  &:nth-child(2) {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  &:last-child {
+    color: $main;
+    font-size: 16px;
+    line-height: 19.6px;
+  }
+
+  & span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.8px;
+    color: $main;
+  }
+}

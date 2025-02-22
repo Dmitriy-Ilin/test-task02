@@ -1,0 +1,28 @@
+@use '../../../src/scss/main' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  padding: 20px 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $active;
+  z-index: 10000;
+}
+
+.header-left {
+  background-color: $white;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+}
+
+.header-right {
+  display: flex;
+}
+
+.header-text {
+  padding: 0 20px;
+  color: $white;
+}

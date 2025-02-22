@@ -1,0 +1,72 @@
+@use '../../../scss/main' as *;
+
+.text {
+  margin: 0;
+  font-family: inherit;
+
+  &-size {
+    &-xl {
+      font-size: $font-size-xl;
+    }
+
+    &-lg2 {
+      font-size: $font-size-lg2;
+    }
+    &-lg {
+      font-size: $font-size-lg;
+    }
+    &-md {
+      font-size: $font-size-md;
+    }
+    &-base {
+      font-size: $font-size-base;
+    }
+    &-sm {
+      font-size: $font-size-sm;
+    }
+    &-xs {
+      font-size: $font-size-xs;
+    }
+  }
+
+  &-line {
+    &-xl2 {
+      font-size: $line-height-xl2;
+    }
+
+    &-xl1 {
+      font-size: $line-height-xl1;
+    }
+
+    &-xl {
+      line-height: $line-height-xl;
+    }
+    &-lg {
+      line-height: $line-height-lg;
+    }
+    &-md {
+      line-height: $line-height-md;
+    }
+    &-sm {
+      line-height: $line-height-sm;
+    }
+  }
+
+  &-weight {
+    &-black {
+      font-weight: $font-weight-black;
+    }
+    &-lg2 {
+      font-weight: $font-weight-lg2;
+    }
+    &-bold {
+      font-weight: $font-weight-bold;
+    }
+    &-regular {
+      font-weight: $font-weight-regular;
+    }
+    &-light {
+      font-weight: $font-weight-light;
+    }
+  }
+}

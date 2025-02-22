@@ -1,0 +1,94 @@
+@use '../../../scss/main' as *;
+
+.area-container {
+  position: relative;
+  width: 100%;
+}
+
+.area-label {
+  display: block;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-sm;
+  font-size: $font-size-sm;
+  margin-bottom: 8px;
+  color: $main;
+}
+
+.area {
+  height: 100px;
+  width: 100%;
+  border: 1px solid $border-default;
+  border-radius: 16px;
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+  background-color: white;
+  resize: vertical;
+  color: $main;
+
+  &:hover:not(:disabled) {
+    border-color: $border-hover;
+  }
+
+  &:focus:not(:disabled) {
+    outline: none;
+    border-color: $active;
+    box-shadow: 0 0 0 1px $active;
+  }
+
+  &--error {
+    border-color: $border-error !important;
+
+    &:focus {
+      box-shadow: 0 0 0 1px $border-error;
+    }
+  }
+
+  &--disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}
+
+.area-error {
+  margin-top: 4px;
+  color: $border-error;
+  font-size: $font-size-xs;
+  line-height: $line-height-xs;
+}
+
+.input-container {
+  width: 275px;
+
+  &--inline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: auto;
+
+    .area-label {
+      margin-bottom: 0;
+      font-size: $font-size-md;
+      font-weight: $font-weight-light;
+      line-height: $line-height-md;
+    }
+
+    .input {
+      flex: 1;
+      min-width: 100px;
+    }
+  }
+}
+
+.input {
+  @extend .area;
+  height: 40px;
+  resize: none;
+  padding: 13px 20px;
+
+  font-size: $font-size-base !important;
+}
+
+.input-required {
+  color: red;
+}

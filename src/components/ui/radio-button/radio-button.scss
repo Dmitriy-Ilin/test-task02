@@ -1,0 +1,156 @@
+@use '../../../scss/main' as *;
+
+$radio-size-small: 16px;
+$radio-size-medium: 20px;
+$radio-size-large: 24px;
+
+$radio-label-font-small: 12px;
+$radio-label-font-medium: 14px;
+$radio-label-font-large: 16px;
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  gap: 8px;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked ~ .radio__checkmark {
+      border-color: $active;
+      background-color: $active;
+
+      &::after {
+        content: '';
+        background-image: url('../../../assets/true.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        display: block;
+        transform: translate(25%, 25%);
+        width: 10px;
+        height: 10.5px;
+      }
+    }
+  }
+
+  &__checkmark {
+    display: inline-block;
+    border: 2px solid $active;
+    border-radius: 50%;
+    transition: border-color 0.2s;
+
+    &::after {
+      content: '';
+      display: none;
+    }
+  }
+
+  &__input:disabled ~ &__checkmark {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &__label {
+    margin-left: 8px;
+    color: var(--color-text);
+    font-size: $font-size-md;
+    font-weight: $font-weight-light;
+    line-height: $line-height-md;
+  }
+
+  &--size {
+    &-small {
+      .radio__checkmark {
+        width: $radio-size-small;
+        height: $radio-size-small;
+
+        &::after {
+          width: 8px;
+          height: 8px;
+        }
+      }
+
+      .radio__label {
+        font-size: $font-size-md;
+        font-weight: $font-weight-light;
+        line-height: $line-height-md;
+      }
+    }
+
+    &-medium {
+      .radio__checkmark {
+        width: $radio-size-medium;
+        height: $radio-size-medium;
+
+        &::after {
+          width: 10px;
+          height: 10px;
+        }
+      }
+
+      .radio__label {
+        font-size: $font-size-md;
+        font-weight: $font-weight-light;
+        line-height: $line-height-md;
+      }
+    }
+
+    &-large {
+      .radio__checkmark {
+        width: $radio-size-large;
+        height: $radio-size-large;
+
+        &::after {
+          width: 12px;
+          height: 12px;
+        }
+      }
+
+      .radio__label {
+        font-size: $radio-label-font-large;
+        font-size: $font-size-md;
+        font-weight: $font-weight-light;
+        line-height: $line-height-md;
+      }
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+
+    .radio__label {
+      color: var(--color-text-disabled);
+      font-size: $font-size-md;
+      font-weight: $font-weight-light;
+      line-height: $line-height-md;
+    }
+
+    .radio__checkmark {
+      border-color: var(--color-border-disabled);
+    }
+  }
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radio-label {
+  margin-bottom: 16px;
+  display: block;
+  font-size: $font-size-md;
+  font-weight: $font-weight-light;
+  line-height: $line-height-md;
+  margin-bottom: 8px;
+  color: $main;
+}

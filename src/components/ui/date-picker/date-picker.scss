@@ -1,0 +1,83 @@
+@use '../../../scss/main' as *;
+
+.react-datepicker-wrapper {
+  width: 275px;
+}
+
+.react-datepicker__input-container {
+  width: 100%;
+
+  input {
+    padding: 12px 12px 12px 20px;
+    font-size: $font-size-base !important;
+
+    &::placeholder {
+      color: $placeholder;
+      opacity: 1;
+    }
+  }
+}
+
+.react-datepicker-popper {
+  z-index: 3;
+}
+
+.react-datepicker {
+  border-radius: 16px;
+  border: 1px solid $border-default;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  &__triangle {
+    display: none;
+  }
+
+  &__header {
+    border-bottom: 1px solid $border-default;
+  }
+
+  &__current-month {
+    color: $main;
+    font-weight: $font-weight-bold;
+  }
+
+  &__day--in-range {
+    background-color: lighten($active, 30%);
+    color: $main;
+  }
+
+  &__day--in-selecting-range:not(&__day--in-range) {
+    background-color: lighten($active, 35%);
+  }
+
+  &__day--range-start,
+  &__day--range-end {
+    background-color: $active;
+    color: white;
+  }
+
+  &__day {
+    color: $main;
+
+    &:hover {
+    }
+
+    &--selected {
+      background-color: $active;
+      color: white;
+
+      &:hover {
+        background-color: darken($active, 5%);
+      }
+    }
+
+    &--keyboard-selected {
+      background-color: transparent;
+      color: $main;
+    }
+  }
+
+  &__navigation-icon::before {
+    border-color: $main;
+  }
+}
