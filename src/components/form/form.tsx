@@ -34,7 +34,8 @@ const Form = () => {
   return (
     <div className='form-container'>
       <Text weight='regular' size='xl' lineHeight='xl2' className='form-text'>
-        Форма размещения заявки
+        Форма {vacancyToEdit ? 'редактирования' : 'размещения'}&nbsp;
+        <span className='form-main__span'>заявки</span>
       </Text>
       <Formik
         validationSchema={validationSchema}

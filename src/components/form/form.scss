@@ -4,6 +4,10 @@
   margin-top: 48px;
 }
 
+.form-main__span {
+  border-bottom: 3px solid $active;
+}
+
 .form-text {
   color: $active;
 }
